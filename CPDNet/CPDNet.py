@@ -184,7 +184,7 @@ def create_model( FLAGS  ):
     list_dis = []
     list_dis_A2B = tf.zeros((FLAGS.batch_size, FLAGS.point_num, 3), dtype=np.float32)
     list_dis_A2B_all = tf.zeros((FLAGS.batch_size, FLAGS.point_num, 3), dtype=np.float32)
-    with tf.variable_scope("p2pnet_A2B") as scope:
+    with tf.variable_scope("CPDNet_A2B") as scope:
         displace_A2B = get_displacements_transformation(pointSet_A_ph, is_training_ph, noise1, pointSet_meta_A_ph, FLAGS, bn_decay)
         # displace_A2B = get_displacements( pointSet_A_ph, pointSet_T_A_ph, is_training_ph, noise1, pointSet_meta_A_ph,  FLAGS, bn_decay  )
         # displace_A2B = get_displacements_AE( pointSet_A_ph, is_training_ph, noise1, pointSet_meta_A_ph,  FLAGS, bn_decay  )
@@ -207,7 +207,7 @@ def create_model( FLAGS  ):
     list_dis = []
     list_dis_B2A = tf.zeros((FLAGS.batch_size, FLAGS.point_num, 3), dtype=np.float32)
     list_dis_B2A_all = tf.zeros((FLAGS.batch_size, FLAGS.point_num, 3), dtype=np.float32)
-    with tf.variable_scope("p2pnet_B2A") as scope:
+    with tf.variable_scope("CPDNet_B2A") as scope:
         displace_B2A = get_displacements_transformation(pointSet_B_ph, is_training_ph, noise1, pointSet_meta_A_ph, FLAGS, bn_decay)
         # displace_B2A = get_displacements( pointSet_B_ph, pointSet_T_B_ph, is_training_ph, noise2, pointSet_meta_A_ph, FLAGS, bn_decay  )
         # displace_B2A = get_displacements_AE(pointSet_B_ph, is_training_ph, noise1, pointSet_meta_A_ph, FLAGS, bn_decay)
