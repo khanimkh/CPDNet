@@ -14,7 +14,7 @@ import collections
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 
-import P2PNET
+import CPDNet
 import ioUtil
 
 
@@ -112,7 +112,7 @@ for k, v in FLAGS._get_kwargs():
 def train():
     with tf.Graph().as_default() as g:
         with tf.device('/cpu:' + str(FLAGS.gpu)):
-            model = P2PNET.create_model(FLAGS)
+            model = CPDNet.create_model(FLAGS)
 
 
         ########## Init and Configuration   ##########
